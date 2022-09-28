@@ -1,0 +1,30 @@
+{
+  "name": "dxc_nodejs",
+  "version": "1.0.0",
+  "description": "node js training",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-special-character/dxc_nodejs.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "js"
+  ],
+  "author": "Yagnesh Modh <yagnesh.modh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the-special-character/dxc_nodejs/issues"
+  },
+  "homepage": "https://github.com/the-special-character/dxc_nodejs#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.3"
+  }
+}
