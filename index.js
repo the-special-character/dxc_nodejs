@@ -1,3 +1,11 @@
-import add from "./app";
+import http from 'http';
 
-console.log(add(1, 3));
+const app = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello, World!\n');
+});
+
+app.listen("5000", "127.0.0.1", () => {
+    console.log("server started");
+})
