@@ -1,11 +1,27 @@
-import http from 'http';
+import express from "express";
+import todoRoutes from './routes/todo.route';
+import userRoutes from './routes/user.route'
 
-const app = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello, World!\n');
-});
+const app = express();
 
-app.listen("5000", "127.0.0.1", () => {
-    console.log("server started");
+const port = process.env.PORT || 3000;
+
+// middleware 
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+// // middlware
+app.use(express.json())
+
+app.use('/api/todos', todoRoutes);
+app.use('/api/users', userRoutes);
+
+
+app.listen(port, () => {
+    console.log(`Server started on ${port}`);
 })
+
+

@@ -4,7 +4,8 @@
   "description": "node js training",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "start": "NODE_ENV=development babel-node index.js",
+    "start:prod": "NODE_ENV=production babel-node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,10 @@
     "@babel/core": "^7.19.3",
     "@babel/node": "^7.19.1",
     "@babel/preset-env": "^7.19.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "inquirer": "^8.2.4"
   }
 }
