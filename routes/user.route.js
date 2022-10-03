@@ -1,23 +1,19 @@
 import express from "express";
+import Auth from "../controller/auth.controller";
+import validationMiddleware from "../middlewares/validation.middleware";
+import { registerValidationSchema, loginValidationSchema } from "../validators/user.validator";
 const router = express.Router();
 
-const users = [
-    {
-        id: 1,
-        name: "yagnesh",
-        age: 33,
-        email: "yagnesh.modh@gmail.com"
-    }
-]
+router.post(
+  "/register",
+  validationMiddleware(registerValidationSchema),
+  Auth.register
+);
 
-router.get("/", (req, res) => {
-    res.send(users)
-})
-
-router.post('/', (req, res) => {
-    console.log(req.body);
-    users.push(req.body);
-    res.status(201).send(req.body);
-})
+router.post(
+    "/login",
+    validationMiddleware(loginValidationSchema),
+    Auth.login
+  );
 
 module.exports = router;

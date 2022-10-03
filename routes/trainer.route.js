@@ -1,15 +1,15 @@
 import express from 'express';
-import Trainer from '../models/trainer.model'
+import TrainerController from '../controller/trainer.controller';
+import validationMiddleware from '../middlewares/validation.middleware';
+import trainerValidationSchema from '../validators/trainer.validator';
 
 const router = express.Router()
 
-router.get("/", async (req, res) => {
-    try {
-        const trainers = await Trainer.find();
-        res.status(200).send(trainers)
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+router.get("/", TrainerController.fetchTrainers)
+
+// route middleware....
+router.post("/", validationMiddleware(trainerValidationSchema), TrainerController.addTrainer)
+
+router.put("/:id",validationMiddleware(trainerValidationSchema), TrainerController.updateTrainer)
 
 export default router

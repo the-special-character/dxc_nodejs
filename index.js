@@ -24,7 +24,7 @@ app.use(
 app.use(express.json())
 
 app.use('/api/todos', todoRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/auth', userRoutes);
 app.use('/api/trainers', trainerRoutes);
 
 
