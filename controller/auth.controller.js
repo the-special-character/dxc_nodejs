@@ -51,6 +51,24 @@ class Auth {
     })(req, res, next);
   };
 
+  static authorize = (role) => {
+    return (req, res, next) => {
+      return passport.authenticate("jwt", function (error, user, info) {
+        if (error) {
+          return res.status(401).send(error.message);
+        }
+        if(!user) {
+          return res.status(401).send(info.message);
+        }
+        console.log(user.role);
+        if(user.role !==  role) {
+          return res.status(401).send("you dont have permission to add record");
+        }
+        next();
+      })(req, res, next);
+    }
+  }
+
   static loginStrategy = async (email, password, done) => {
     try {
       const user = await UserModel.findOne({ email });

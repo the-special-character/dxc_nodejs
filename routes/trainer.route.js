@@ -15,7 +15,7 @@ router.get(
 // route middleware....
 router.post(
   "/",
-  [Auth.authenticate, validationMiddleware(trainerValidationSchema)],
+  [Auth.authorize("admin"), validationMiddleware(trainerValidationSchema)],
   TrainerController.addTrainer
 );
 

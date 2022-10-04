@@ -35,39 +35,39 @@ passport.use(
   )
 );
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: "",
-      clientSecret: "",
-      callbackURL: "/api/auth/google/callback",
-      scope: [ 'profile' ],
-      state: true
-    },
-    function (accessToken, refreshToken, profile, cb) {
-      console.log(profile);
-      console.log(accessToken);
-      console.log(refreshToken);
-      return cb(null, profile);
+// passport.use(
+//   new GoogleStrategy(
+//     {
+//       clientID: "",
+//       clientSecret: "",
+//       callbackURL: "/api/auth/google/callback",
+//       scope: [ 'profile' ],
+//       state: true
+//     },
+//     function (accessToken, refreshToken, profile, cb) {
+//       console.log(profile);
+//       console.log(accessToken);
+//       console.log(refreshToken);
+//       return cb(null, profile);
 
-      // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      //   return cb(err, user);
-      // });
-    }
-  )
-);
+//       // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+//       //   return cb(err, user);
+//       // });
+//     }
+//   )
+// );
 
-passport.serializeUser(function(user, cb) {
-  process.nextTick(function() {
-    cb(null, { id: user.id, username: user.username, name: user.name });
-  });
-});
+// passport.serializeUser(function(user, cb) {
+//   process.nextTick(function() {
+//     cb(null, { id: user.id, username: user.username, name: user.name });
+//   });
+// });
 
-passport.deserializeUser(function(user, cb) {
-  process.nextTick(function() {
-    return cb(null, user);
-  });
-});
+// passport.deserializeUser(function(user, cb) {
+//   process.nextTick(function() {
+//     return cb(null, user);
+//   });
+// });
 
 
 router.post(
@@ -78,10 +78,10 @@ router.post(
 
 router.post("/login", validationMiddleware(loginValidationSchema), Auth.login);
 
-router.get("/google", passport.authenticate("google"));
+// router.get("/google", passport.authenticate("google"));
 
-router.get("/google/callback", passport.authenticate('google'), (req, res) => {
-  res.send("success")
-});
+// router.get("/google/callback", passport.authenticate('google'), (req, res) => {
+//   res.send("success")
+// });
 
 module.exports = router;
