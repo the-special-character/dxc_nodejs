@@ -1,0 +1,72 @@
+Arguments: 
+  /Users/yagneshmodh/.nvm/versions/node/v18.5.0/bin/node /Users/yagneshmodh/.nvm/versions/node/v18.5.0/bin/yarn
+
+PATH: 
+  /Users/yagneshmodh/.nvm/versions/node/v18.5.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/yagneshmodh/.nvm/versions/node/v18.5.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/yagneshmodh/.yarn/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.5.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/bcrypt: ETIMEDOUT
+      at Timeout._onTimeout (/Users/yagneshmodh/.nvm/versions/node/v18.5.0/lib/node_modules/yarn/lib/cli.js:141550:19)
+      at listOnTimeout (node:internal/timers:564:17)
+      at process.processTimers (node:internal/timers:507:7)
+
+npm manifest: 
+  {
+    "name": "dxc_nodejs",
+    "version": "1.0.0",
+    "description": "node js training",
+    "main": "index.js",
+    "scripts": {
+      "start": "NODE_ENV=development nodemon --exec babel-node index.js",
+      "start:prod": "NODE_ENV=production babel-node index.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/the-special-character/dxc_nodejs.git"
+    },
+    "keywords": [
+      "javascript",
+      "node",
+      "js"
+    ],
+    "author": "Yagnesh Modh <yagnesh.modh@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/the-special-character/dxc_nodejs/issues"
+    },
+    "homepage": "https://github.com/the-special-character/dxc_nodejs#readme",
+    "devDependencies": {
+      "@babel/cli": "^7.19.3",
+      "@babel/core": "^7.19.3",
+      "@babel/node": "^7.19.1",
+      "@babel/preset-env": "^7.19.3"
+    },
+    "dependencies": {
+      "bcrypt": "^5.0.1",
+      "dotenv": "^16.0.2",
+      "express": "^4.18.1",
+      "express-session": "^1.17.3",
+      "inquirer": "^8.2.4",
+      "joi": "^17.6.2",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^6.6.2",
+      "passport": "^0.6.0",
+      "passport-jwt": "^4.0.0",
+      "passport-local": "^1.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

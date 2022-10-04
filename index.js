@@ -31,11 +31,12 @@ app.use(
     saveUninitialized: true,
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/todos", todoRoutes);
 app.use("/api/auth", userRoutes);
+app.use("/api/todos", todoRoutes);
 app.use("/api/trainers", trainerRoutes);
 
 app.listen(port, () => {

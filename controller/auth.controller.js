@@ -35,6 +35,10 @@ class Auth {
     })(req, res);
   };
 
+  static connectFacebook = async (req, res) => {
+    return passport.authenticate("faceboo")
+  }
+
   static authenticate = async (req, res, next) => {
     return passport.authenticate("jwt", function (error, user, info) {
       if (error) {
