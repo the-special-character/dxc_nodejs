@@ -6,6 +6,7 @@ import userRoutes from "./routes/user.route";
 import trainerRoutes from "./routes/trainer.route";
 import dotenv from "dotenv";
 import courseRoute from "./routes/course.route";
+import errorMiddleware from "./middlewares/error.middleware";
 
 dotenv.config();
 
@@ -40,6 +41,8 @@ app.use("/api/auth", userRoutes);
 app.use("/api/todos", todoRoutes);
 app.use("/api/trainers", trainerRoutes);
 app.use("/api/courses", courseRoute);
+
+app.use(errorMiddleware);
 
 app.listen(port, () => {
   console.log(`Server started on ${port}`);
