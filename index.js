@@ -5,6 +5,7 @@ import todoRoutes from "./routes/todo.route";
 import userRoutes from "./routes/user.route";
 import trainerRoutes from "./routes/trainer.route";
 import dotenv from "dotenv";
+import courseRoute from "./routes/course.route";
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.use(passport.session());
 app.use("/api/auth", userRoutes);
 app.use("/api/todos", todoRoutes);
 app.use("/api/trainers", trainerRoutes);
+app.use("/api/courses", courseRoute);
 
 app.listen(port, () => {
   console.log(`Server started on ${port}`);

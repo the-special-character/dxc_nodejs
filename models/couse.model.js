@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, ObjectId } from "mongoose";
 import Trainer from './trainer.model'
 
 const couseSchema = new Schema({
@@ -11,7 +11,7 @@ const couseSchema = new Schema({
   },
   duration: { type: Number, required: true },
   trainer: {
-    type: mongoose.ObjectId,
+    type: ObjectId,
     ref: Trainer
   }
 });
