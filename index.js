@@ -2,8 +2,8 @@ import express from "express";
 import path from "path";
 import passport from "passport";
 import { createLogger, format, transports } from "winston";
-import 'winston-mongodb';
-import dbConnect from "./dbConnect";
+// import 'winston-mongodb';
+import connectDB from "./dbConnect";
 import todoRoutes from "./routes/todo.route";
 import userRoutes from "./routes/user.route";
 import trainerRoutes from "./routes/trainer.route";
@@ -17,15 +17,14 @@ dotenv.config();
 
 const filename = path.join(__dirname, "created-logfile.log");
 
-
 const logger = createLogger({
   format: combine(errors({ stack: true }), json()),
   transports: [
     new transports.Console(),
-    // new transports.File({ filename }),
-    new transports.MongoDB({
-      db: process.env.MONGODB_URI
-    })
+    new transports.File({ filename }),
+    // new transports.MongoDB({
+    //   db: process.env.MONGODB_URI
+    // })
   ],
 });
 
@@ -45,8 +44,7 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-dbConnect();
-
+connectDB();
 // middleware
 app.use(
   express.urlencoded({
@@ -76,6 +74,8 @@ app.use("/api/courses", courseRoute);
 app.use(errorMiddleware(logger));
 
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server started on ${port}`);
 });
+
+module.exports = server;

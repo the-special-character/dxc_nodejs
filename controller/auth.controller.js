@@ -6,6 +6,7 @@ import UserModel from "../models/user.model";
 class Auth {
   static register = async (req, res) => {
     try {
+      console.log("register api called");
       const user = new UserModel(req.body);
       const newUser = await user.save();
       res.status(201).send(newUser);
